@@ -1,16 +1,16 @@
 # At.Matus.MetaData.Abstractions
 
-A small, focused abstraction for storing and exposing simple metadata as a collection of records. Each record is a map (dictionary) of string key/value pairs.
+A small, focused abstraction for storing and exposing simple metadata as a single record. The metadata record is represented as a `Dictionary<string, string>` that holds all key/value entries.
 
 ## Key concepts
 
-- `Records` — an array of dictionaries where each element represents a logical metadata record.
-- `RecordCount` — the number of records stored.
-- `AddRecord(string key, string value)` — add a key/value pair; concrete implementations decide how records are created and how duplicate keys are handled.
+- `Records` — a single `Dictionary<string, string>` containing all metadata entries.
+- `RecordCount` — the number of metadata entries (number of key/value pairs in `Records`).
+- `AddRecord(string key, string value)` — adds or updates a metadata entry; concrete implementations should document duplicate-key behavior (commonly overwrite).
 
 ## Why this package
 
-This abstraction keeps metadata concerns separated from domain logic and enables multiple implementations (in-memory, persisted, adapter for other metadata stores) while preserving a simple surface area.
+Keeps metadata concerns separated from domain logic and enables different implementations (in-memory, persisted, adapters) while preserving a minimal surface area.
 
 ## Target platform
 
@@ -22,8 +22,8 @@ This abstraction keeps metadata concerns separated from domain logic and enables
 Consume the interface in code or implement it for your storage needs. Example usage:
 
 Implementers should document:
-- How `AddRecord` determines which record receives the key/value pair.
-- Behavior when a duplicate key is added.
+- Whether `AddRecord` overwrites existing values or behaves differently.
+- Whether `Records` returns a live mutable reference or a defensive/read-only copy.
 - Thread-safety guarantees (if any).
 
 ## Building and publishing
