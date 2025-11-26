@@ -26,7 +26,7 @@ namespace At.Matus.MetaData.Abstractions
 {
     public interface IMetaData
     {
-        Dictionary<string, string>[] Records { get; }
+        Dictionary<string, string> Records { get; }
         int RecordCount { get; }
 
         void AddRecord(string key, string value);
