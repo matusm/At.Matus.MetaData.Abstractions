@@ -4,9 +4,9 @@ A small, focused abstraction for storing and exposing simple metadata as a colle
 
 ## Key concepts
 
-- `Records` — an array of dictionaries where each element represents a logical metadata record.
-- `RecordCount` — the number of records stored.
-- `AddRecord(string key, string value)` — add a key/value pair; concrete implementations decide how records are created and how duplicate keys are handled.
+- `Records` â€” an array of dictionaries where each element represents a logical metadata record.
+- `RecordCount` â€” the number of records stored.
+- `AddRecord(string key, string value)` â€” add a key/value pair; concrete implementations decide how records are created and how duplicate keys are handled.
 
 ## Why this package
 
@@ -45,6 +45,3 @@ Tip: Use the __Package Manager Console__ in Visual Studio to run package/publish
 - Send pull requests with focused changes and unit tests where applicable.
 - Include a short explanation of API/behavior changes in the PR description.
 
-## License
-
-Add a LICENSE file at the repository root (e.g., MIT, Apache-2.0) according to your project's licensing policy.
